@@ -5,6 +5,7 @@ import time
 import pandas as pd
 import random
 from datetime import datetime
+from scripts.analyze_logs import analyze_logs  # Import the analysis function
 
 # Constants
 PAPER_IDS_FILE = "paper_ids.txt"
@@ -22,7 +23,7 @@ def load_paper_ids():
 
 def make_python_request(paper_ids):
     """Make a GET request using Python's requests library."""
-    paper_id = random.choice(paper_ids)  # Randomly select a paper ID
+    paper_id = random.choice(paper_ids)
     url = f"https://api.semanticscholar.org/graph/v1/paper/{paper_id}/authors"
     params = {"fields": "url,papers.title,papers.year,papers.authors,papers.abstract", "offset": 2}
     
@@ -51,7 +52,7 @@ def make_python_request(paper_ids):
 
 def make_curl_request(paper_ids):
     """Make a GET request using the curl command."""
-    paper_id = random.choice(paper_ids)  # Randomly select a paper ID
+    paper_id = random.choice(paper_ids)
     url = f"https://api.semanticscholar.org/graph/v1/paper/{paper_id}/authors"
     params = "fields=url,papers.title,papers.year,papers.authors,papers.abstract&offset=2"
     full_url = f"{url}?{params}"
@@ -61,9 +62,9 @@ def make_curl_request(paper_ids):
     try:
         curl_command = [
             "curl",
-            "-s",  # Silent mode
-            "-o", "/dev/null",  # Discard output
-            "-w", "%{http_code}",  # Output only the status code
+            "-s",
+            "-o", "/dev/null",
+            "-w", "%{http_code}",
             full_url
         ]
         result = subprocess.run(curl_command, capture_output=True, text=True)
@@ -101,12 +102,15 @@ if not paper_ids:
     print("No paper IDs available. Exiting...")
     exit(1)
 
-# Schedule both Python and cURL requests every 30 minutes
+# Schedule tasks
 schedule.every(30).minutes.do(make_python_request, paper_ids=paper_ids)
 schedule.every(30).minutes.do(make_curl_request, paper_ids=paper_ids)
 
+# Schedule daily log analysis
+schedule.every().day.at("00:00").do(analyze_logs)
+
 if __name__ == "__main__":
-    print("Starting request monitoring for Python and cURL...")
+    print("Starting request monitoring and daily analysis...")
     while True:
         schedule.run_pending()
         time.sleep(1)
