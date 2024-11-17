@@ -78,4 +78,64 @@ Below is the ASCII representation of the monitoring workflow:
 +-------------------------------+
 ```
 
+---
+
+### Dependencies
+
+This project requires a Python environment with specific dependencies to monitor and analyze Semantic Scholar API requests. For consistency and ease of setup, we provide an `environment.yml` file for managing dependencies using Conda.
+
+#### Required Dependencies
+The following Python packages are needed:
+- **`requests`**: For making HTTP requests to the Semantic Scholar API.
+- **`schedule`**: For scheduling periodic tasks.
+- **`pandas`**: For logging and analyzing request data.
+
+#### Using the `environment.yml` File
+To ensure a consistent environment, follow these steps:
+
+1. **Install Conda** (if not already installed):
+   - You can download and install Miniconda or Anaconda from [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
+
+2. **Create the Environment**:
+   - Run the following command in the repository's root directory (where `environment.yml` is located):
+     ```bash
+     conda env create -f environment.yml
+     ```
+
+3. **Activate the Environment**:
+   - Once the environment is created, activate it using:
+     ```bash
+     conda activate semantic-scholar-monitor
+     ```
+
+4. **Verify the Installation**:
+   - Check if the dependencies were installed correctly:
+     ```bash
+     conda list
+     ```
+
+#### Manually Installing Dependencies
+If you prefer not to use Conda, you can manually install the required dependencies using `pip`:
+```bash
+pip install requests schedule pandas
+```
+
+---
+
+#### `environment.yml` File
+
+Below is the content of the `environment.yml` file provided in this repository:
+
+```yaml
+name: semantic-scholar-monitor
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - requests
+  - schedule
+  - pandas
+```
+
+---
 
