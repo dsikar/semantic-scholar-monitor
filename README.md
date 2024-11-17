@@ -136,6 +136,52 @@ dependencies:
   - schedule
   - pandas
 ```
+---
+
+### TODO: Future Sprints
+
+Wish list features for the project:
+
+1. **Organize Project Structure:**
+   - Separate existing scripts, data, and reports into dedicated sub-directories for better organization:
+     - `scripts/` for Python scripts.
+     - `data/` for `paper_ids.txt`, logs, and other input files.
+     - `reports/` for generated plots and analysis outputs.
+
+2. **Automate Script Execution:**
+   - Replace the current `nohup` method with cron jobs or other task schedulers for improved automation and manageability.
+   - Define cron schedules for:
+     - Running `monitor_requests.py` periodically (e.g., every 30 minutes).
+     - Running `analyze_logs.py` and `update_repo.py` once a day.
+
+3. **Expand Paper IDs:**
+   - Add more paper IDs to `paper_ids.txt` to improve monitoring robustness and test API performance across a wider dataset.
+
+4. **Add Reporting Capabilities:**
+   - Automatically generate and archive a daily report summarizing API performance (e.g., success rates, error analysis).
+   - Include visualizations in the report (e.g., success rate by hour and day).
+
+5. **Improve Logging and Error Handling:**
+   - Add detailed logging for easier debugging (e.g., timestamped logs, categorized error messages).
+   - Include retry logic for failed API requests with exponential backoff.
+
+6. **Deploy on Hosted Service:**
+   - Migrate the script to run on a hosted service (e.g., AWS EC2, Azure, or a Raspberry Pi) for 24/7 monitoring.
+   - Configure service-level monitoring for uptime and error alerts.
+
+7. **Optimize GitHub Updates:**
+   - Schedule GitHub updates only when there are changes to push.
+   - Compress and archive old log files to save space in the repository.
+
+8. **Add Documentation and Configuration:**
+   - Enhance the `README.md` with examples of cron job configuration and running the project on hosted services.
+   - Include a configuration file (e.g., `config.yaml`) to make intervals, file paths, and other settings customizable.
+
+9. **API Rate Limit Handling:**
+   - Implement logic to detect and respond to API rate-limiting errors (e.g., reduce request frequency temporarily).
+
+10. **Add Docker Support:**
+    - Create a `Dockerfile` and instructions for containerizing the application, ensuring a consistent runtime environment.
 
 ---
 
