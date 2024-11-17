@@ -5,6 +5,10 @@ import time
 import pandas as pd
 import random
 from datetime import datetime
+import sys
+import os
+# Add the parent directory to the Python path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from scripts.analyze_logs import analyze_logs  # Import the analysis function
 from scripts.update_repo import update_github_repo  # Import the repository update function
 
