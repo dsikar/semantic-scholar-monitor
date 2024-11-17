@@ -6,6 +6,7 @@ import pandas as pd
 import random
 from datetime import datetime
 from scripts.analyze_logs import analyze_logs  # Import the analysis function
+from scripts.update_repo import update_github_repo  # Import the repository update function
 
 # Constants
 PAPER_IDS_FILE = "paper_ids.txt"
@@ -108,6 +109,9 @@ schedule.every(30).minutes.do(make_curl_request, paper_ids=paper_ids)
 
 # Schedule daily log analysis
 schedule.every().day.at("00:00").do(analyze_logs)
+
+# Schedule daily GitHub repository update
+schedule.every().day.at("00:05").do(update_github_repo)
 
 if __name__ == "__main__":
     print("Starting request monitoring and daily analysis...")
