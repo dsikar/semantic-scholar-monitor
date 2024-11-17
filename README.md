@@ -185,3 +185,70 @@ Wish list features for the project:
 
 ---
 
+Here’s a **Contributing** sub-section you can append to the `README.md` file:
+
+---
+
+### Contributing
+
+We welcome contributions to improve the **Semantic Scholar Monitor** project! Whether it's fixing bugs, adding new features, or enhancing documentation, your help is greatly appreciated. Here's how you can get started:
+
+#### How to Contribute
+1. **Fork the Repository:**
+   - Click the "Fork" button on the top right of the GitHub repository page.
+
+2. **Clone Your Fork:**
+   - Clone your forked repository to your local machine:
+     ```bash
+     git clone git@github.com:<your-username>/semantic-scholar-monitor.git
+     cd semantic-scholar-monitor
+     ```
+
+3. **Create a New Branch:**
+   - Create a branch for your feature or bugfix:
+     ```bash
+     git checkout -b feature-or-bugfix-name
+     ```
+
+4. **Make Your Changes:**
+   - Add or update code, data, or documentation.
+   - Follow best practices for Python development, including:
+     - Using meaningful commit messages.
+     - Testing your changes locally.
+
+5. **Push Your Changes:**
+   - Push your changes to your fork:
+     ```bash
+     git add .
+     git commit -m "Description of your changes"
+     git push origin feature-or-bugfix-name
+     ```
+
+6. **Submit a Pull Request:**
+   - Go to the original repository on GitHub.
+   - Click "New Pull Request" and select your branch for comparison.
+   - Describe your changes and link to any related issues.
+
+#### Guidelines for Contributions
+- **Code Quality:**
+  - Follow Python best practices (e.g., PEP 8 style guide).
+  - Include comments and docstrings for clarity.
+- **Testing:**
+  - Ensure your changes are thoroughly tested before submitting.
+- **Commit Messages:**
+  - Write clear, concise commit messages summarizing your changes.
+- **Documentation:**
+  - Update the `README.md` file or other relevant documentation if necessary.
+- **Collaboration:**
+  - Engage with reviewers during the pull request process to address feedback.
+
+#### Reporting Issues
+If you encounter any bugs or have suggestions, please open an issue on the GitHub repository:
+- Include a clear description of the problem or feature request.
+- Provide steps to reproduce the issue (if applicable).
+
+#### Contact
+Feel free to reach out via GitHub issues if you have any questions about contributing!
+
+---
+
