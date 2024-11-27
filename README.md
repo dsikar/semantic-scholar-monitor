@@ -138,6 +138,10 @@ dependencies:
 ```
 ---
 
+5. Run the script from scripts directory
+```bash
+nohup python ss-scholar-monitor.py > output.log 2>&1 &
+```
 ### TODO: Future Sprints
 
 Wish list features for the project:
