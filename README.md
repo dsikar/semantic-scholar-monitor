@@ -142,6 +142,15 @@ dependencies:
 ```bash
 nohup python ss-scholar-monitor.py > output.log 2>&1 &
 ```
+
+6. Alternatively, schedule with cron
+```bash
+
+$crontab -e
+
+0 2 * * * /usr/bin/python /home/daniel/git/semantic-scholar-monitor/scripts/ss-scholar-monitor.py > /home/daniel/git/semantic-scholar-monitor/scripts/output.log 2>&1
+
+```
 ### TODO: Future Sprints
 
 Wish list features for the project:
@@ -152,7 +161,7 @@ Wish list features for the project:
      - `data/` for `paper_ids.txt`, logs, and other input files.
      - `reports/` for generated plots and analysis outputs.
 
-2. **Automate Script Execution:**
+2. **Automate Script Execution: DONE**
    - Replace the current `nohup` method with cron jobs or other task schedulers for improved automation and manageability.
    - Define cron schedules for:
      - Running `monitor_requests.py` periodically (e.g., every 30 minutes).
