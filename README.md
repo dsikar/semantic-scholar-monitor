@@ -146,7 +146,7 @@ nohup python ss-scholar-monitor.py > output.log 2>&1 &
 6. Alternatively, schedule with cron
 ```bash
 
-$crontab -e
+$ crontab -e
 
 0 2 * * * /usr/bin/python /home/daniel/git/semantic-scholar-monitor/scripts/ss-scholar-monitor.py > /home/daniel/git/semantic-scholar-monitor/scripts/output.log 2>&1
 
